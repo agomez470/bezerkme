@@ -1,6 +1,6 @@
 {
-	"name": "bezerk-starter-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "pips-pond",
+	"description": "A tiny journal from a 3D-printed frog left out in the world.",
 	"cloudflare": {
 		"label": "Astro Framework Starter",
 		"products": [
