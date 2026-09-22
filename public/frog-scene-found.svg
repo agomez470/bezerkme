@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 510" fill="none" role="img" aria-label="Someone finding Pip">
+	<rect width="1020" height="510" fill="#E8F4EC"/>
+	<!-- soft radial pond glow -->
+	<circle cx="510" cy="280" r="220" fill="#BFE3CF" opacity="0.7"/>
+	<circle cx="510" cy="280" r="140" fill="#A8D5C4" opacity="0.55"/>
+	<!-- lily pads -->
+	<ellipse cx="320" cy="340" rx="90" ry="28" fill="#5FA86A" opacity="0.85"/>
+	<ellipse cx="700" cy="360" rx="70" ry="22" fill="#6FB07A" opacity="0.8"/>
+	<path d="M320 340h90M700 360h70" stroke="#E8F4EC" stroke-width="3"/>
+	<!-- frog centered -->
+	<g transform="translate(390 160)">
+		<ellipse cx="120" cy="200" rx="95" ry="78" fill="#8FCB6E"/>
+		<ellipse cx="120" cy="214" rx="60" ry="44" fill="#C8E8A8"/>
+		<ellipse cx="78" cy="130" rx="36" ry="34" fill="#A8DB86"/>
+		<ellipse cx="162" cy="130" rx="36" ry="34" fill="#A8DB86"/>
+		<circle cx="78" cy="134" r="16" fill="#1E4634"/>
+		<circle cx="162" cy="134" r="16" fill="#1E4634"/>
+		<circle cx="84" cy="128" r="5" fill="#F7FBF4"/>
+		<circle cx="168" cy="128" r="5" fill="#F7FBF4"/>
+		<path d="M90 180c12 16 48 16 60 0" stroke="#2F6B4F" stroke-width="6" stroke-linecap="round" fill="none"/>
+		<circle cx="108" cy="164" r="3" fill="#2F6B4F"/>
+		<circle cx="132" cy="164" r="3" fill="#2F6B4F"/>
+	</g>
+	<!-- sparkles -->
+	<circle cx="250" cy="140" r="5" fill="#F0D56A"/>
+	<circle cx="780" cy="160" r="4" fill="#F0D56A"/>
+	<circle cx="200" cy="260" r="3" fill="#F7FBF4"/>
+	<circle cx="820" cy="240" r="3.5" fill="#F7FBF4"/>
+</svg>

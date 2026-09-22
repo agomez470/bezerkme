@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 510" fill="none" role="img" aria-label="Pip saying hello">
+	<rect width="1020" height="510" fill="#CDE9DF"/>
+	<rect y="300" width="1020" height="210" fill="#9ECDB8"/>
+	<!-- big lily -->
+	<ellipse cx="510" cy="360" rx="220" ry="56" fill="#5FA86A"/>
+	<path d="M510 360h220" stroke="#CDE9DF" stroke-width="4"/>
+	<!-- frog -->
+	<g transform="translate(360 120)">
+		<ellipse cx="150" cy="210" rx="110" ry="92" fill="#8FCB6E"/>
+		<ellipse cx="150" cy="228" rx="72" ry="52" fill="#C8E8A8"/>
+		<ellipse cx="100" cy="128" rx="42" ry="40" fill="#A8DB86"/>
+		<ellipse cx="200" cy="128" rx="42" ry="40" fill="#A8DB86"/>
+		<circle cx="100" cy="132" r="20" fill="#1E4634"/>
+		<circle cx="200" cy="132" r="20" fill="#1E4634"/>
+		<circle cx="108" cy="124" r="6" fill="#F7FBF4"/>
+		<circle cx="208" cy="124" r="6" fill="#F7FBF4"/>
+		<path d="M112 188c14 20 62 20 76 0" stroke="#2F6B4F" stroke-width="7" stroke-linecap="round" fill="none"/>
+		<!-- waving hand -->
+		<ellipse cx="40" cy="170" rx="28" ry="16" fill="#7FC063" transform="rotate(-35 40 170)"/>
+	</g>
+	<!-- soft sun -->
+	<circle cx="860" cy="90" r="48" fill="#F0D56A" opacity="0.85"/>
+</svg>

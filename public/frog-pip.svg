@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 420" fill="none" role="img" aria-label="Pip the frog figurine">
+	<!-- soft ground shadow -->
+	<ellipse cx="240" cy="372" rx="120" ry="18" fill="#2F6B4F" opacity="0.12"/>
+
+	<!-- back feet -->
+	<ellipse cx="150" cy="330" rx="48" ry="22" fill="#6FB85A" transform="rotate(-8 150 330)"/>
+	<ellipse cx="330" cy="330" rx="48" ry="22" fill="#6FB85A" transform="rotate(8 330 330)"/>
+
+	<!-- body -->
+	<ellipse cx="240" cy="250" rx="118" ry="100" fill="#8FCB6E"/>
+	<ellipse cx="240" cy="268" rx="78" ry="58" fill="#C8E8A8"/>
+
+	<!-- cheeks -->
+	<circle cx="168" cy="236" r="18" fill="#F2B8A0" opacity="0.45"/>
+	<circle cx="312" cy="236" r="18" fill="#F2B8A0" opacity="0.45"/>
+
+	<!-- eyes (big cute figurine eyes) -->
+	<ellipse cx="186" cy="168" rx="42" ry="40" fill="#A8DB86"/>
+	<ellipse cx="294" cy="168" rx="42" ry="40" fill="#A8DB86"/>
+	<circle cx="186" cy="172" r="22" fill="#1E4634"/>
+	<circle cx="294" cy="172" r="22" fill="#1E4634"/>
+	<circle cx="194" cy="164" r="7" fill="#F7FBF4"/>
+	<circle cx="302" cy="164" r="7" fill="#F7FBF4"/>
+	<circle cx="178" cy="180" r="3" fill="#F7FBF4" opacity="0.7"/>
+	<circle cx="286" cy="180" r="3" fill="#F7FBF4" opacity="0.7"/>
+
+	<!-- smile -->
+	<path d="M206 248c12 18 56 18 68 0" stroke="#2F6B4F" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+	<!-- front hands -->
+	<ellipse cx="156" cy="292" rx="28" ry="16" fill="#7FC063" transform="rotate(-20 156 292)"/>
+	<ellipse cx="324" cy="292" rx="28" ry="16" fill="#7FC063" transform="rotate(20 324 292)"/>
+
+	<!-- tiny nose dots -->
+	<circle cx="228" cy="228" r="3.5" fill="#2F6B4F"/>
+	<circle cx="252" cy="228" r="3.5" fill="#2F6B4F"/>
+</svg>
