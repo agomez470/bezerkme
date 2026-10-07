@@ -1,0 +1,164 @@
+---
+const modelUrl = '/models/bezerk.stl';
+---
+
+<div class="stl-viewer-wrap">
+	<div class="stl-viewer panel" data-model-url={modelUrl}>
+		<canvas class="stl-canvas" aria-label="3D model of bezerk — drag to rotate"></canvas>
+		<p class="stl-fallback" hidden>Drop <code>bezerk.stl</code> in <code>public/models/</code> to see him here.</p>
+		<p class="stl-hint">drag to spin · unpainted bezerk</p>
+	</div>
+</div>
+
+<script>
+	import * as THREE from 'three';
+	import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+	function initViewer(root: HTMLElement) {
+		const canvas = root.querySelector('.stl-canvas') as HTMLCanvasElement;
+		const fallback = root.querySelector('.stl-fallback') as HTMLParagraphElement;
+		const hint = root.querySelector('.stl-hint') as HTMLParagraphElement;
+		const modelUrl = root.dataset.modelUrl ?? '/models/bezerk.stl';
+
+		if (!canvas) return;
+
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(0xe8eef2);
+
+		const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+		camera.position.set(0, 0, 80);
+
+		const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+		const ambient = new THREE.AmbientLight(0xffffff, 0.65);
+		const key = new THREE.DirectionalLight(0xffffff, 0.85);
+		key.position.set(40, 60, 50);
+		const fill = new THREE.DirectionalLight(0x5ec8ff, 0.35);
+		fill.position.set(-30, -20, 40);
+		scene.add(ambient, key, fill);
+
+		const controls = new OrbitControls(camera, canvas);
+		controls.enableDamping = true;
+		controls.dampingFactor = 0.08;
+		controls.enablePan = false;
+
+		let mesh: THREE.Mesh | null = null;
+		let animationId = 0;
+
+		function resize() {
+			const width = root.clientWidth;
+			const height = Math.max(280, Math.min(400, width * 0.75));
+			renderer.setSize(width, height, false);
+			camera.aspect = width / height;
+			camera.updateProjectionMatrix();
+		}
+
+		function centerMesh(geometry: THREE.BufferGeometry) {
+			geometry.computeBoundingBox();
+			const box = geometry.boundingBox!;
+			const center = new THREE.Vector3();
+			box.getCenter(center);
+			geometry.translate(-center.x, -center.y, -center.z);
+
+			const size = new THREE.Vector3();
+			box.getSize(size);
+			const maxDim = Math.max(size.x, size.y, size.z);
+			const scale = 50 / maxDim;
+			geometry.scale(scale, scale, scale);
+		}
+
+		function animate() {
+			animationId = requestAnimationFrame(animate);
+			if (mesh && !reduceMotion) {
+				mesh.rotation.y += 0.003;
+			}
+			controls.update();
+			renderer.render(scene, camera);
+		}
+
+		resize();
+		window.addEventListener('resize', resize);
+
+		const loader = new STLLoader();
+		loader.load(
+			modelUrl,
+			(geometry) => {
+				geometry.rotateX(-Math.PI / 2);
+				geometry.rotateY(Math.PI);
+				centerMesh(geometry);
+				const material = new THREE.MeshPhongMaterial({
+					color: 0xf5f0e6,
+					shininess: 20,
+					flatShading: false,
+				});
+				mesh = new THREE.Mesh(geometry, material);
+				scene.add(mesh);
+				canvas.hidden = false;
+				if (hint) hint.hidden = false;
+				animate();
+			},
+			undefined,
+			() => {
+				canvas.hidden = true;
+				if (hint) hint.hidden = true;
+				if (fallback) fallback.hidden = false;
+			},
+		);
+
+		return () => {
+			cancelAnimationFrame(animationId);
+			window.removeEventListener('resize', resize);
+			controls.dispose();
+			renderer.dispose();
+			if (mesh) {
+				mesh.geometry.dispose();
+				(mesh.material as THREE.Material).dispose();
+			}
+		};
+	}
+
+	document.querySelectorAll<HTMLElement>('.stl-viewer[data-model-url]').forEach((root) => {
+		initViewer(root);
+	});
+</script>
+
+<style>
+	.stl-viewer-wrap {
+		margin: 1.25em 0;
+	}
+
+	.stl-viewer {
+		padding: 0.75em;
+		text-align: center;
+	}
+
+	.stl-canvas {
+		display: block;
+		width: 100%;
+		height: 320px;
+		border: 2px inset var(--border);
+		border-radius: 4px;
+		background: #e8eef2;
+		cursor: grab;
+	}
+
+	.stl-canvas:active {
+		cursor: grabbing;
+	}
+
+	.stl-hint {
+		margin: 0.5em 0 0;
+		font-size: 11px;
+		color: var(--text-muted);
+	}
+
+	.stl-fallback {
+		margin: 1em 0;
+		font-size: 13px;
+		color: var(--text-muted);
+	}
+</style>
