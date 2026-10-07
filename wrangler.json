@@ -6,6 +6,16 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"routes": [
+		{
+			"pattern": "bezerk.me",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.bezerk.me",
+			"custom_domain": true
+		}
+	],
 	"observability": {
 		"enabled": true
 	},

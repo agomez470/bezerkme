@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "bezerk.me";
 export const SITE_DESCRIPTION =
-	"A funny little African rain frog sculpture with magnets in his feet. Paintable, portable, and always hiding in happy little places.";
+	"A funny little African rain frog sculpture with magnets in their feet. Paintable, portable, and always hiding in happy little places.";
